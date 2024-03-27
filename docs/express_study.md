@@ -76,11 +76,9 @@ $ npm run dev
 // 실행 내용
 ```
 
----
-
 ## 📌 express 시작하기
 
-#### 시작하기
+#### 시작하기 (express 앱 만들기)
 
 ```js
 import express from "express";
@@ -104,3 +102,49 @@ const handleListening = () => {
 
 app.listen(PORT, handleListening);
 ```
+
+## 📌 express 매서드
+
+express에서는 app.get(), app.post(), app.put() 등의 메서드를 사용하여 요청 핸들러를 등록할 수 있다. 이러한 메서드는 경로와 요청 핸들러 함수를 매핑하여 해당 경로의 요청이 발생할 때마다 해당 요청 핸들러 함수가 실행되도록 설정한다.
+</br></br>
+예를 들어, app.get('/login', handleLogin)와 같은 코드는 /login 경로로의 GET 요청이 발생할 때 handleLogin 함수를 실행하여 요청을 처리한다.
+
+```js
+import express from "express";
+// express 어플리케이션 생성
+const app = express();
+const PORT = 4000;
+
+const handlehome = (req, res) => {
+  // request 종료
+  return res.end();
+};
+const handleLogin = (req, res) => {
+  return res.send({ message: "Login here." });
+};
+
+// get요청
+app.get("/", handlehome);
+app.get("/login", handleLogin);
+
+// 외부 접속 listen
+const handleListening = () => {
+  console.log(`✅ Server listening on port http://localhost:${PORT} 🚀`);
+};
+
+app.listen(PORT, handleListening);
+```
+
+express에서는 요청 핸들러(request handler) 함수에 자동으로 req와 res 객체가 전달된다. 이는 Express 내부적으로 미들웨어(middleware) 스택을 통해 요청을 처리하고 핸들러 함수에 필요한 인자를 제공하기 때문이다.
+
+### req (요청 객체)
+
+`req` 객체는 클라이언트로부터의 HTTP 요청 정보를 포함하고 있다. 이 객체를 통해 요청 헤더, 요청 본문(body), 파라미터, 쿼리 문자열 등을 액세스할 수 있다.
+
+### res (응답 객체)
+
+`res` 객체는 클라이언트로의 HTTP 응답을 생성하고 전송하는 데 사용한다. 이 객체를 통해 응답 상태 코드, 헤더, 본문(body) 등을 설정할 수 있다.
+
+### next (다음 미들웨어 호출)
+
+`next` 함수는 현재의 미들웨어에서 다음 미들웨어를 호출하는 데 사용된다. Express 애플리케이션에서 미들웨어는 체인 형태로 연결되어 실행되며, `next`를 호출하여 다음 미들웨어로 제어를 전달한다.
