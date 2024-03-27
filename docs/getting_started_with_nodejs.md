@@ -21,13 +21,13 @@ $ npm init
 $ npm run dev
 ```
 
-### package.json, package-lock.json, node_modules 란?
+### 📌 package.json, package-lock.json, node_modules 란?
 
 npm install 을 하는 과정에서 package-lock.json 파일이 생성되지 않아 해결방법을 찾아보던 중, `npm install`시에 저절로 생기는 이 세 개의 파일들에 대해 공부한 내용을 [블로그](https://velog.io/@mudidu/package-lock.json-%EC%95%88-%EC%83%9D%EA%B9%80)에 기록해두었다.
 
 > node_modules 폴더안에는 많은 파일이 있으므로 .gitignore 에 '/node_modules' 추가하여 깃 저장소에 올리지 않는다.
 
-### devDependencies
+### 📌 devDependencies
 
 패키지를 설치할 때 `--save-dev`를 붙이게 되면 package.json에 devDependencies에 추가가 된다. 여기에 추가되는 패키지는 개발자(사람)에게 필요한 dependencies이다.
 </br></br>
