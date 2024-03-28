@@ -148,3 +148,28 @@ express에서는 요청 핸들러(request handler) 함수에 자동으로 req와
 ### next (다음 미들웨어 호출)
 
 `next` 함수는 현재의 미들웨어에서 다음 미들웨어를 호출하는 데 사용된다. Express 애플리케이션에서 미들웨어는 체인 형태로 연결되어 실행되며, `next`를 호출하여 다음 미들웨어로 제어를 전달한다.
+
+## 📌 Morgan 미들웨어
+
+morgan은 express 미들웨어 역할을 보다 디테일하게 수행하는 라이브러리이다.</br>
+사용할 때 다양한 옵션을 주어 원하는 log 정보를 받을 수 있다.
+
+```
+$ npm i morgan
+```
+
+[모르간 공식문서](https://www.npmjs.com/package/morgan)
+
+```js
+// 직접 만든 로그 미들웨어
+const logger = (req, res, next) => {
+  console.log(`${req.method} ${req.url}`);
+  next();
+};
+
+// morgan을 사용한 로그 미들웨어
+const loggerMiddleware = morgan("dev");
+
+// 미들웨어 사용
+app.use(loggerMiddleware);
+```
