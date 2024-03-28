@@ -1,6 +1,6 @@
 # routers
 
-nodeJS 프로젝트에서 라우팅하는 방법과 Page, Component 단위로 나누는 것이 리액트와 비슷한 것 같다. nodeJS에서는 크게 Server, Routers, Controller 이렇게 세 개로 나누어 관리하는 것이 깔끔하게 관리하는 방법이다.
+nodeJS에서는 크게 Server, Routers, Controller 이렇게 세 개로 나누어 관리하는 것이 깔끔하게 관리하는 방법이다.
 </br></br>
 최상단 파일인 server.js에서 먼저 app.use()를 이용하여 페이지를 선언(?)해준다.
 
