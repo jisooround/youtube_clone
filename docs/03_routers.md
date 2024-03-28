@@ -15,7 +15,7 @@ app.use("/users", userRouter);
 
 이렇게 되면 첫 번째 인자로 들어간 경로에서 두 번째 인자로 들어간 컨트롤러가 실행되는 것이다.
 </br></br>
-그 다음 깔끔한 관리를 위해 'routers'디렉토리를 만든 후 router별로 파일을 생성한다. router파일 안에는 또 controller를 분리하고, import하여 사용한다.
+그 다음 'routers'디렉토리를 만든 후 router별로 파일을 생성한다. router파일 안에는 또 controller를 분리하고, import하여 사용한다.
 
 ```js
 // src/routers/userRouter.js
