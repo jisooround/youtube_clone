@@ -6,7 +6,7 @@ import videoRouter from "./routers/videoRouters";
 
 // express 어플리케이션 생성
 const app = express();
-const PORT = 4000;
+const PORT = 4001;
 
 // 직접 만든 로그 미들웨어
 const logger = (req, res, next) => {
