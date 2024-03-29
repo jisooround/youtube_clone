@@ -8,10 +8,11 @@ export const search = (req, res) => {
 
 // videos
 export const see = (req, res) => {
+  console.log(req.params);
   res.send("Watch Video");
 };
 export const edit = (req, res) => {
-  res.send("Edit Video");
+  res.send(`Edit Video ${req.params.id}`);
 };
 export const deleteVideo = (req, res) => {
   res.send("Delete Video");
