@@ -16,8 +16,11 @@ const logger = (req, res, next) => {
 
 // morgan을 사용한 로그 미들웨어
 const loggerMiddleware = morgan("dev");
-
 app.use(loggerMiddleware);
+
+// 뷰 엔진을 퍼그로 세팅
+app.set("view engine", "pug");
+app.set("views", process.cwd() + "/src/views");
 
 // 라우터
 app.use("/", globalRouter);

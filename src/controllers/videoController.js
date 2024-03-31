@@ -1,6 +1,6 @@
 // global
 export const trending = (req, res) => {
-  res.send("Home Page Vidoes");
+  res.render("home");
 };
 export const search = (req, res) => {
   res.send("Search Vidoes");
