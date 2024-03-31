@@ -9,7 +9,7 @@ export const search = (req, res) => {
 // videos
 export const see = (req, res) => {
   console.log(req.params);
-  res.send("Watch Video");
+  res.render("watch");
 };
 export const edit = (req, res) => {
   res.send(`Edit Video ${req.params.id}`);
