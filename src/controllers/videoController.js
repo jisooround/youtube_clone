@@ -12,7 +12,7 @@ export const see = (req, res) => {
   res.render("watch");
 };
 export const edit = (req, res) => {
-  res.send(`Edit Video ${req.params.id}`);
+  res.render("edit");
 };
 export const deleteVideo = (req, res) => {
   res.send("Delete Video");
