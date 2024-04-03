@@ -1,6 +1,6 @@
 // global
 export const trending = (req, res) => {
-  res.render("home");
+  res.render("home", { pageTitle: "Home" });
 };
 export const search = (req, res) => {
   res.send("Search Vidoes");
@@ -9,10 +9,10 @@ export const search = (req, res) => {
 // videos
 export const see = (req, res) => {
   console.log(req.params);
-  res.render("watch");
+  res.render("watch", { pageTitle: "Watch" });
 };
 export const edit = (req, res) => {
-  res.render("edit");
+  res.render("edit", { pageTitle: "Edit" });
 };
 export const deleteVideo = (req, res) => {
   res.send("Delete Video");

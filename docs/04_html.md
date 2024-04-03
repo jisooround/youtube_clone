@@ -43,6 +43,7 @@ html(lang="ko")
 
 ```js
 // videoController.js
+
 export const trending = (req, res) => {
   res.render("home");
 };
@@ -80,7 +81,7 @@ html(lang="ko")
         include partials/footer.pug
 ```
 
-### 📌 pug 상속 개념 사용하기
+### 📌 pug 상속 개념 사용하기 (block)
 
 지금까지는 html 구조를 반복하여 사용했다. 이 반복되는 html 구조를 상속 개념을 사용하여 개선해보자.
 `extends` : 확장할 수 있는 pug 언어
@@ -106,8 +107,12 @@ extends base.pug
 
 2. `block`을 사용하여 상속받은 layout에 원하는 내용 넣기
 
+- block 이라는 창문을 만들고,
+- 그 block 안에 내용을 넣는다고 생각하면 쉽다.
+
 ```pug
 // src/views/base.pug
+
 doctype html
 html(lang="ko")
   head
@@ -126,3 +131,30 @@ extends base.pug
 block title
   h1 Welcome to the home page.🐭
 ```
+
+### 📌 block에 변수 넣기
+
+- block 기능을 쓰다가 block 전체가 아닌, 일부만 변경하고 싶을 때는 이 방법으로 변수를 할당하면 된다.
+
+```pug
+// src/views/base.pug
+
+doctype html
+html(lang="ko")
+  head
+    // pageTitle 이라는 변수가 생성되었다.
+    title #{pageTitle} | Project!
+  body
+        h1 Welcome to the home page.🐭
+        include partials/footer.pug
+```
+
+```js
+// videoController.js
+
+export const trending = (req, res) => {
+  res.render("home", { pageTitle: "Home" });
+};
+```
+
+- pug를 참조하는 render에 두번째 인자로 변수의 값을 넣어주면 변수가 전달된다.
