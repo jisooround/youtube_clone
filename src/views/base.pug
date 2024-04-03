@@ -2,6 +2,9 @@ doctype html
 html(lang="ko")
   head
     title #{pageTitle} | Wetube
+    // mvp css
+    link(rel="stylesheet" href="https://unpkg.com/mvp.css")
   body
+    main
         block content
-        include partials/footer.pug
+    include partials/footer.pug
