@@ -252,6 +252,7 @@ include mixins/video
 block content
     h2 Welcome to the home page.🐭
     // 반복문: each {객체의 아이템(임의로 네이밍)} in {컨트롤러에서 전달받은 실제 데이터 객체}
+    // else는 위에 each문이 성립되지 않을 때 else의 내용이 실행
     each data in videos
     // 믹스인 사용: +{UI 믹스인}(객체의 현재 아이템)
         +video(data)
