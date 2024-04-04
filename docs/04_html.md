@@ -253,7 +253,7 @@ block content
     h2 Welcome to the home page.🐭
     // 반복문: each {객체의 아이템(임의로 네이밍)} in {컨트롤러에서 전달받은 실제 데이터 객체}
     each data in videos
-    // +{UI 믹스인}(객체의 현재 아이템)
+    // 믹스인 사용: +{UI 믹스인}(객체의 현재 아이템)
         +video(data)
     else
         li Sorry nothing found.
