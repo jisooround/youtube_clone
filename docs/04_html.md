@@ -243,6 +243,8 @@ mixin video(info)
 위에 include로 mixin파일을 참조해준 후, 반복문을 돌린 후 `+mixin(데이터)` 이렇게 사용한다.
 
 ```pug
+// src/views/home.pug
+
 extends base.pug
 // mixin파일 경로를 써줌으로써 video mixin파일을 참조할 수 있게 됨
 include mixins/video
