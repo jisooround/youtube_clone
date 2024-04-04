@@ -1,31 +1,32 @@
+let videos = [
+  {
+    title: "First Video",
+    rating: 3,
+    comments: 2,
+    createdAt: "2 minutes ago",
+    views: 34,
+    id: 1,
+  },
+  {
+    title: "Second Video",
+    rating: 3,
+    comments: 2,
+    createdAt: "2 minutes ago",
+    views: 3,
+    id: 2,
+  },
+  {
+    title: "Third Video",
+    rating: 3,
+    comments: 2,
+    createdAt: "2 minutes ago",
+    views: 1,
+    id: 3,
+  },
+];
+
 // global
 export const trending = (req, res) => {
-  const videos = [
-    {
-      title: "First Video",
-      rating: 3,
-      comments: 2,
-      createdAt: "2 minutes ago",
-      views: 34,
-      id: 1,
-    },
-    {
-      title: "Second Video",
-      rating: 3,
-      comments: 2,
-      createdAt: "2 minutes ago",
-      views: 34,
-      id: 2,
-    },
-    {
-      title: "Third Video",
-      rating: 3,
-      comments: 2,
-      createdAt: "2 minutes ago",
-      views: 34,
-      id: 3,
-    },
-  ];
   res.render("home", { pageTitle: "Home", videos });
 };
 export const search = (req, res) => {
@@ -33,16 +34,22 @@ export const search = (req, res) => {
 };
 
 // videos
-export const see = (req, res) => {
-  console.log(req.params);
-  res.render("watch", { pageTitle: "Watch" });
+export const watch = (req, res) => {
+  const { id } = req.params;
+  const video = videos[id - 1];
+  res.render("watch", { pageTitle: `Watch ${video.title}.`, video });
 };
-export const edit = (req, res) => {
-  res.render("edit", { pageTitle: "Edit" });
+// getEdit = edit 페이지를 보여주는 함수
+export const getEdit = (req, res) => {
+  const { id } = req.params;
+  const video = videos[id - 1];
+  res.render("edit", { pageTitle: `Editing: ${video.title}`, video });
 };
-export const deleteVideo = (req, res) => {
-  res.send("Delete Video");
-};
-export const upload = (req, res) => {
-  res.send("Upload Video");
+// postEdit = 변경사항을 저장해주는 함수
+export const postEdit = (req, res) => {
+  const { id } = req.params;
+  const { title } = req.body;
+  const video = videos[id - 1];
+  video.title = title;
+  return res.redirect(`/videos/${id}`);
 };

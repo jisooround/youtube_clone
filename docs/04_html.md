@@ -259,3 +259,17 @@ block content
     else
         li Sorry nothing found.
 ```
+
+### 📌 a 태그 사용 (href)
+
+a 태그의 링크를 변수를 섞어서 걸어주고 싶을 때는 아래와 같이 작성한다.
+
+```
+// 작성방법 1
+a(href=`/videos/${info.id}`)=info.title
+
+// 작성방법 2
+a(href="/videos/" + info.id)=info.title
+```
+
+현재위치에서 가고 싶다면 앞에 '/'슬래시를 붙이지 않고 경로를 작성한다.

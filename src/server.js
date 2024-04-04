@@ -18,6 +18,9 @@ const logger = (req, res, next) => {
 const loggerMiddleware = morgan("dev");
 app.use(loggerMiddleware);
 
+// express application이 form의 value를 이해할 수 있음
+app.use(express.urlencoded({ extended: true }));
+
 // 뷰 엔진을 퍼그로 세팅
 app.set("view engine", "pug");
 app.set("views", process.cwd() + "/src/views");
